@@ -1,4 +1,5 @@
 import { Router } from "express";
+import Contact from "../models/Contact.js";
 
 const router = Router()
 
@@ -6,9 +7,11 @@ router.get('/contacts', (req, res) => {
     res.json(contacts)
 })
 
-router.post('/contacts', (req, res) => {
-    const newContact = { ...req.body }
-    res.send(newContact)
+router.post('/contacts', async (req, res) => {
+    const contact = Contact(req.body)
+    const saved = await contact.save()
+    console.log(saved)
+    res.send('Contact saved.')
 })
 
 router.put('/contacts/:id', (req, res) => {

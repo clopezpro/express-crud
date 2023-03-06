@@ -9,8 +9,9 @@ const PORT = process.env.PORT || 3000
 
 const app = express() //express server(initialize the express package)
 
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(routes) 
+app.use(routes)
 // app.use(express.static('src'))
 
 app.listen(PORT, () => {
