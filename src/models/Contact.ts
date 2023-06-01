@@ -16,5 +16,5 @@ const contactSchema = new Schema({
     timestamps: true,
     versionKey: false
 })
+export const M_contact = model("Contacts", contactSchema);
 
-export default model('Contact', contactSchema)
